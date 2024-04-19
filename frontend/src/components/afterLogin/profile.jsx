@@ -19,6 +19,7 @@ const ProfileUpdateForm = () => {
   const navigate = useNavigate()
 
   useEffect(()=>{
+    setProfileData({})
     getCurrentUser().then((res)=>{
         if(res?.status == 200){
           let profile = {...res?.data}

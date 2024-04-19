@@ -5,6 +5,7 @@ import Auth from '../middleware/Auth'
 import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
 function AfterLogin(){
     const navigate = useNavigate()
+    const isAuthenticate = localStorage.getItem('token')
 
     function LogOut(e){
         localStorage.removeItem('token')
@@ -18,10 +19,10 @@ function AfterLogin(){
     }
 
     const openUpdateProfile = () => navigate('/profile');
-    
+
     return (
         <>
-            <AppBar position="static">
+            {isAuthenticate && (<AppBar position="static">
                 <Toolbar variant="dense">
                     <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={(e)=>{LogOut(e)}}>
                         <Typography variant="h6" color="inherit" component="div">
@@ -41,7 +42,7 @@ function AfterLogin(){
                         </Typography>
                     </IconButton>
                 </Toolbar>
-            </AppBar>
+            </AppBar>)}
             <Routes>
                 <Route
                     path="/profile"
