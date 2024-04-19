@@ -64,6 +64,7 @@ const updateLoginUser = async (req, res) => {
         }
 
         if(req.body.password){
+            console.log("When updating pssword", req.body.password)
             const validPassword = await bcrypt.compare(req.body.password, user.password);
             if (validPassword) {
                 return res.status(400).json({ errors:{password: 'Password can not be equals to the old password'} });
@@ -75,7 +76,6 @@ const updateLoginUser = async (req, res) => {
         // Update user data
         if (req.body.name) user.name = req.body.name;
         if (req.body.email) user.email = req.body.email;
-        if (req.body.password) user.password = req.body.password;
         if (req.body.phone) user.phone = req.body.phone;
         if (req.body.mobile) user.mobile = req.body.mobile;
         if (req.body.address) user.address = req.body.address;

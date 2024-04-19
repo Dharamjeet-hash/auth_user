@@ -167,7 +167,7 @@ const ProfileUpdateForm = () => {
             </label>
             {formErrors.profilePic && <div style={{ color: 'red' }}>{formErrors.profilePic}</div>}
             <Button type="submit" variant="contained" color="primary" fullWidth style={{ marginTop: '10px' }}>
-              Update Profile
+              SignUp
             </Button>   
           </form>
         </Paper>

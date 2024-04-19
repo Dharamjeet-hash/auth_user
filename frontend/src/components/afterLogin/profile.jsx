@@ -62,8 +62,15 @@ const ProfileUpdateForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission, including profilePic file upload
+
+    let profile = {...profileData}
+    delete profile['password']
+    delete profile['_id']
+    delete profile['lat']
+    delete profile['long']
+    delete profile['__v']
     let formData = new FormData();
-    Object.keys(profileData).forEach(fieldName => {
+    Object.keys(profile).forEach(fieldName => {
         formData.append(fieldName, profileData[fieldName]);
     })
     updateCurrentUser(formData).then((res)=>{

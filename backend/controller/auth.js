@@ -47,6 +47,7 @@ const register = async (req, res) => {
         }
         // Extract fields from request body
         const { name, email, password, phone, mobile, zipcode, lat, long } = req.body;
+        console.log("When signup pssword", password)
         const hashedPassword = await bcrypt.hash(password, 10);
         const userData = {
             name,
